@@ -1,132 +1,4 @@
 
-
-
-// -------------------- start now -------------------------
-// const allSit = document.getElementsByClassName('sit-btn');
-// const ticketPrice = document.querySelector('.ticket-price');
-// const priceDiv = document.querySelector('.total-price');
-// const sitContainer = document.getElementById('sit-container');
-// let count = 0;
-// let totalPrice = 0;
-// const selectedSeat = new Set()
-
-
-
-// let seatLeft = allSit.length;
-// document.querySelector('.have-seat').innerText = seatLeft;
-
-
-
-// for (const sit of allSit) {
-//     sit.addEventListener('click', function(e) {
-
-//         const sitNumber = e.target.innerText;
-//         if(selectedSeat.has(sitNumber)){
-//             alert('This seat is already selected.');
-//             return;
-//         }
-
-//         count = count + 1;
-//         document.getElementById('sit-count').innerText = count;
-
-        
-//         const seatItem = document.createElement('div');
-//         seatItem.classList.add('seat-item');
-
-
-//         const seatContent = document.createElement('p');
-//         const seatType = document.createElement('p');
-//         const seatPrice = document.createElement('p');
-//         seatContent.innerText = sitNumber;
-//         seatType.innerText = 'Ecomony';
-//         const price = parseInt(ticketPrice.innerText);
-//         seatPrice.innerText = price;
-
-//         totalPrice += price;
-
-//         priceDiv.innerText = totalPrice;
-
-//         seatItem.appendChild(seatContent);
-//         seatItem.appendChild(seatType);
-//         seatItem.appendChild(seatPrice);
-//         sitContainer.appendChild(seatItem);
-
-//         const grandTotal = document.querySelector('.total-grand');
-//         grandTotal.innerText = totalPrice;
-
-        
-
-//         e.target.classList.add('active');
-
-//         // sit.removeEventListener('click', clickHandler);
-        
-        
-
-
-//         seatLeft -= 1;
-//         document.querySelector('.have-seat').innerText = seatLeft;
-//     });
-// }
-
-
-
-// const placeName = e.target.parentNode.childNodes[1].innerText;
-
-
-
-// const allSit = document.getElementsByClassName('sit-btn');
-// const ticketPrice = document.querySelector('.ticket-price');
-// const priceDiv = document.querySelector('.total-price');
-// const sitContainer = document.getElementById('sit-container');
-// let count = 0;
-// let totalPrice = 0;
-// const selectedSeat = new Set();
-
-// let seatLeft = allSit.length;
-// document.querySelector('.have-seat').innerText = seatLeft;
-
-// for (const sit of allSit) {
-//     sit.addEventListener('click', function(e) {
-//         if (e.target.classList.contains('active')) {
-//             alert('This seat is already selected.');
-//             return;
-//         }
-
-//         const sitNumber = e.target.innerText;
-//         count = count + 1;
-//         document.getElementById('sit-count').innerText = count;
-
-//         const seatItem = document.createElement('div');
-//         seatItem.classList.add('seat-item');
-
-//         const seatContent = document.createElement('p');
-//         const seatType = document.createElement('p');
-//         const seatPrice = document.createElement('p');
-//         seatContent.innerText = sitNumber;
-//         seatType.innerText = 'Economy';
-//         const price = parseInt(ticketPrice.innerText);
-//         seatPrice.innerText = price;
-
-//         totalPrice += price;
-//         priceDiv.innerText = totalPrice;
-
-//         seatItem.appendChild(seatContent);
-//         seatItem.appendChild(seatType);
-//         seatItem.appendChild(seatPrice);
-//         sitContainer.appendChild(seatItem);
-
-//         const grandTotal = document.querySelector('.total-grand');
-//         grandTotal.innerText = totalPrice;
-
-//         e.target.classList.add('active');
-//         selectedSeat.add(sitNumber);
-
-//         seatLeft -= 1;
-//         document.querySelector('.have-seat').innerText = seatLeft;
-//     });
-// }
-
-
 const allSit = document.getElementsByClassName('sit-btn');
 const ticketPrice = document.querySelector('.ticket-price');
 const priceDiv = document.querySelector('.total-price');
@@ -187,17 +59,6 @@ for (const sit of allSit) {
         grandTotal.innerText = totalPrice;
 
         // Discount
-        // const fifteenOffer = totalPrice - totalPrice * 0.15;
-        // grandTotal.innerText = fifteenOffer;
-
-        // const twentyOffer = totalPrice - totalPrice * 0.2;
-        // grandTotal.innerText = twentyOffer;
-
-        // Function to calculate discounted price based on coupon code
-
-
-
-
 
         function applyCoupon(couponCode) {
             let discountedPrice = totalPrice;
@@ -209,8 +70,7 @@ for (const sit of allSit) {
             return discountedPrice;
         }
 
-        // Example usage:
-        // Assume the coupon code input field has an ID of 'coupon-input'
+        
         const couponInput = document.getElementById('coupon-input');
         const applyButton = document.querySelector('.cupon-btn');
 
@@ -218,7 +78,7 @@ for (const sit of allSit) {
             const couponCode = couponInput.value;
             let finalPrice;
 
-            // Check if a valid coupon code is entered
+            
             if (couponCode === 'NEW15' || couponCode === 'Couple 20') {
                 finalPrice = applyCoupon(couponCode);
                 grandTotal.innerText = finalPrice;

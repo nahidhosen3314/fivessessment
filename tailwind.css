@@ -213,45 +213,9 @@ table button {
     opacity: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.next-button[disabled] {
+	opacity: .5;
+}
 
 
 
