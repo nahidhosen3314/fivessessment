@@ -7,6 +7,20 @@ const nextButton = document.querySelector('.next-button');
 const successPopup = document.querySelector('.success-popup');
 const exitBtn = document.querySelector('.exit');
 
+const hello = document.getElementById('exit-btns');
+hello.addEventListener('click', function(){
+    window.location.reload();
+})
+
+
+
+
+
+
+
+
+
+
 let count = 0;
 let totalPrice = 0;
 const selectedSeats = new Set();
