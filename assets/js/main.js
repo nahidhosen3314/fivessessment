@@ -131,6 +131,10 @@ const allSit = document.getElementsByClassName('sit-btn');
 const ticketPrice = document.querySelector('.ticket-price');
 const priceDiv = document.querySelector('.total-price');
 const sitContainer = document.getElementById('sit-container');
+const nextButton = document.querySelector('.next-button');
+const successPopup = document.querySelector('.success-popup');
+const exitBtn = document.querySelector('.exit');
+
 let count = 0;
 let totalPrice = 0;
 const selectedSeats = new Set();
@@ -141,6 +145,9 @@ document.querySelector('.have-seat').innerText = seatLeft;
 for (const sit of allSit) {
     sit.addEventListener('click', function(e) {
         const sitNumber = e.target.innerText;
+
+        // enable next button
+        nextButton.removeAttribute("disabled");
         
         // Check if the maximum number of seats has been reached
         if (selectedSeats.size >= 4) {
@@ -179,9 +186,53 @@ for (const sit of allSit) {
         const grandTotal = document.querySelector('.total-grand');
         grandTotal.innerText = totalPrice;
 
-        // const fifteenOffer = grandTotal - grandTotal * 0.15;
-        // const twentyOffer = grandTotal - grandTotal * 0.2;
+        // Discount
+        // const fifteenOffer = totalPrice - totalPrice * 0.15;
+        // grandTotal.innerText = fifteenOffer;
 
+        // const twentyOffer = totalPrice - totalPrice * 0.2;
+        // grandTotal.innerText = twentyOffer;
+
+        // Function to calculate discounted price based on coupon code
+
+
+
+
+
+        function applyCoupon(couponCode) {
+            let discountedPrice = totalPrice;
+            if (couponCode === 'NEW15') {
+                discountedPrice = totalPrice - totalPrice * 0.15;
+            } else if (couponCode === 'Couple 20') {
+                discountedPrice = totalPrice - totalPrice * 0.2;
+            }
+            return discountedPrice;
+        }
+
+        // Example usage:
+        // Assume the coupon code input field has an ID of 'coupon-input'
+        const couponInput = document.getElementById('coupon-input');
+        const applyButton = document.querySelector('.cupon-btn');
+
+        applyButton.addEventListener('click', function() {
+            const couponCode = couponInput.value;
+            let finalPrice;
+
+            // Check if a valid coupon code is entered
+            if (couponCode === 'NEW15' || couponCode === 'Couple 20') {
+                finalPrice = applyCoupon(couponCode);
+                grandTotal.innerText = finalPrice;
+
+                 // Hide the coupon input field
+                couponInput.style.display = 'none';
+                applyButton.style.display = 'none';
+
+
+
+            } else {
+                alert('Invalid coupon code');
+            }
+        });
 
 
         e.target.classList.add('active');
@@ -193,13 +244,7 @@ for (const sit of allSit) {
 }
 
 
-
 // success popup
-const nextButton = document.querySelector('.next-button');
-const successPopup = document.querySelector('.success-popup');
-const exitBtn = document.querySelector('.exit');
-
-
 nextButton.addEventListener('click', function(){
     successPopup.classList.add('active');
 });
